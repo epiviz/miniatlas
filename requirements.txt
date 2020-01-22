@@ -1,0 +1,14 @@
+epivizfileserver
+dask[complete]
+requests
+ujson
+umsgpack
+pysam
+h5py
+scipy
+numpy
+aiocache
+sanic
+pandas
+sanic-cors
+httpx

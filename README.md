@@ -24,7 +24,11 @@ The bash script `install.sh` will install the necessary dependencies to run the 
 bash epiviz.sh
 ```
 
-The bash script `epiviz.sh` runs the file server and the user interface. Caddy usually runs on port 2015, but check the terminal prompt for the port number. 
+The bash script `epiviz.sh` runs the file server and the user interface. 
+
+Open browser and go to <http://localhost:2015>
+
+Caddy usually runs on port 2015, but check the terminal prompt for the port number and update this in the link above.
 
 The repository uses the following packages - 
 

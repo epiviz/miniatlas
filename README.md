@@ -26,7 +26,7 @@ bash epiviz.sh
 
 The bash script `epiviz.sh` runs the file server and the user interface. 
 
-Open browser and go to <http://localhost:2015>
+Open browser and go to <http://localhost:2015/landingpage.html> or <http://localhost:2015/cellgroup.html>
 
 Caddy usually runs on port 2015, but check the terminal prompt for the port number and update this in the link above.
 

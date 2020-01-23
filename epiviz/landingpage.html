@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Epiviz Mini Atlas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/epiviz-charts/src/renderingQueues/renderingQueue.js"></script>
+
+    <link rel="import" href="bower_components/epiviz-data-source/epiviz-data-source.html">
+    <link rel="import" href="bower_components/epiviz-charts/epiviz-charts.html">
+</head>
+
+<body>
+    <!-- Let the components know where the epiviz file server is running -->
+    <epiviz-data-source provider-type="epiviz.data.WebServerDataProvider" provider-id="fileapi"
+        provider-url="http://localhost:8000">
+    </epiviz-data-source>
+
+    <!-- initiliaze navigation to a gene location or genomic region 36340000 - 36400000-->
+    <epiviz-navigation
+        chr="chr18"
+        start=36340000
+        end=36400000
+    >
+        <!-- add a genes track for hg19 -->
+        <epiviz-genes-track slot="charts" dim-s='["mm10"]'
+            style="height:175px">
+        </epiviz-genes-track>
+
+        <!-- add stacked blocks track for ATAC Peaks -->
+        <epiviz-stacked-blocks-track 
+            slot="charts" 
+            dim-s='["L2-3_IT", "L5_IT_Rspo1", "L5_IT_Rspo2", "L5_IT_S100b", "L6_IT", "L6_CT", "L6_NP", "L5_ET", "Lamp5", "Vip", "Sst", "Pvalb_Calb1", "Pvalb_Reln"]'
+            chart-colors='["#2EB934", "#58D2C1", "#52B8AA", "#58D2C1", "#81791F", "#41786E", "#62988D", "black", "#F198A1", "#FF4DC1", "#FFA02E", "#BC2E72", "#A24B6D"]'
+            style="height:300px">
+        </epiviz-stacked-blocks-track>
+
+        <!-- add Mean ATAC signal tracks for the cell types -->
+        <epiviz-multistacked-line-track
+            slot="charts"
+            dim-s='["mean_atac_glut", "mean_atac_gaba"]'
+            style="height:175px">
+        </epiviz-multistacked-line-track>
+
+        <epiviz-line-track
+            slot="charts"
+            dim-s='["mean_atac_glut", "mean_atac_gaba"]'
+            style="height:175px">
+        </epiviz-line-track>
+
+        <!-- add mean CG Methylation tracks per cell type -->
+        <epiviz-multistacked-line-track
+            slot="charts"
+            dim-s='["mean_methy_glut", "mean_methy_gaba"]'
+            style="height:175px">
+        </epiviz-multistacked-line-track>
+    </epiviz-navigation>
+
+    <noscript>
+        Please enable JavaScript to view this website.
+    </noscript>
+</body>
+
+</html>

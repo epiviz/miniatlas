@@ -8,11 +8,7 @@ import math
 # custom function to normalize CH methylation
 def norm(col):
     mean = numpy.mean(col)
-    ncol = []
-    for tcol in col:
-        ncol.append(tcol - mean)
-    print(ncol)
-    return(ncol)
+    return(col.apply(lambda x: x - mean))
 
 if __name__ == "__main__":
     # create measurements to load multiple trackhubs or configuration files
